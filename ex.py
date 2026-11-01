@@ -553,7 +553,8 @@ class PathfindingApp:
         self.cell_size_slider.on_changed(self._on_cell_size)
         ax_resolution.set_visible(True)
 
-        ax_depth = self.fig.add_axes([px + 0.01, 0.38, pw - 0.02, 0.025])
+        ax_depth = self.fig.add_axes(
+            [px + 0.01, 0.345, pw - 0.02, 0.025])
         self.qt_depth_slider = Slider(
             ax_depth, 'Iterations', 0, 6, valinit=self.qt_depth, valstep=1)
         self.qt_depth_slider.on_changed(self._on_qt_depth)
@@ -562,13 +563,13 @@ class PathfindingApp:
         # Butoane acțiuni
         self.action_buttons = []
         for i, (label, col, handler, row_y) in enumerate([
-            ('Run Full',    '#c8f0c8', self._run_full,    0.315),
-            ('Step',        '#c8d8f8', self._step_once,   0.255),
+            ('Run Full',    '#c8f0c8', self._run_full,    0.305),
+            ('Step',        '#c8d8f8', self._step_once,   0.250),
             ('Auto',        '#f8e8c8', self._toggle_auto, 0.195),
-            ('Reset',       '#f0f0f0', self._reset_viz,   0.135),
-            ('Clear All',   '#f8c8c8', self._clear_all,   0.075),
+            ('Reset',       '#f0f0f0', self._reset_viz,   0.140),
+            ('Clear All',   '#f8c8c8', self._clear_all,   0.085),
         ]):
-            ax_b = self.fig.add_axes([px, row_y, pw, 0.052])
+            ax_b = self.fig.add_axes([px, row_y, pw, 0.045])
             btn = Button(ax_b, label, color=col,
                          hovercolor=col.replace('c8','90').replace('f0','d0'))
             btn.on_clicked(handler)
